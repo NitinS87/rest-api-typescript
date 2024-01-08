@@ -1,0 +1,26 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# logs
+/logs
+/*.log
+
+# dotenv environment variables file
+.env
+
+# IDEs and editors
+/.vscode
+*.swp
+*.swo
+*.swn
+*.idea
+
+# OS generated files
+.DS_Store
+Thumbs.db
