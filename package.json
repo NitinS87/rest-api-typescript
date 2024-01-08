@@ -1,7 +1,7 @@
 {
   "name": "rest-api-typescript",
   "version": "1.0.0",
-  "description": "",
+  "description": "A REST API boilerplate written in TypeScript with Express, Jest, Supertest, ESLint, Prettier, ESLint, Nodemon, Debug, Winston, Morgan, Helmet, Cors, Dotenv, Zod, and more.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -12,8 +12,30 @@
     "start": "npm run build && node build/index.js",
     "dev": "npx nodemon"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "typescript",
+    "node",
+    "express",
+    "rest",
+    "api",
+    "rest-api",
+    "rest-api-typescript",
+    "jest",
+    "ts-jest",
+    "supertest",
+    "eslint",
+    "prettier",
+    "tslint",
+    "nodemon",
+    "helmet",
+    "cors",
+    "morgan",
+    "winston",
+    "debug",
+    "dotenv",
+    "zod"
+  ],
+  "author": "Nitin Sharma",
   "license": "ISC",
   "dependencies": {
     "@types/morgan": "^1.9.9",
