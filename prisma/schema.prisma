@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int          @id @default(autoincrement())
+  email        String       @unique
+  name         String?
+  passwordHash String
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  profile      Profile?
+  todos        Todo[]
+  sharedTodo   SharedTodo[]
+}
+
+model Profile {
+  id        Int       @id @default(autoincrement())
+  bio       String?
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int       @unique
+  picture   String?
+  dob       DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Todo {
+  id          Int          @id @default(autoincrement())
+  title       String
+  completed   Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  user        User         @relation(fields: [userId], references: [id])
+  userId      Int
+  sharedTodos SharedTodo[]
+}
+
+model SharedTodo {
+  id               Int         @id @default(autoincrement())
+  todo             Todo        @relation(fields: [todoId], references: [id])
+  todoId           Int
+  sharedWith       User        @relation(fields: [sharedWithUserId], references: [id])
+  sharedWithUserId Int
+  access           AccessLevel
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+
+  @@unique([todoId, sharedWithUserId])
+}
+
+enum AccessLevel {
+  READ
+  EDIT
+}

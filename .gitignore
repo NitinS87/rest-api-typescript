@@ -11,8 +11,12 @@
 /logs
 /*.log
 
-# dotenv environment variables file
+# dotenv environment variables file except .env.test and .env.example
+!.env.test
+!.env.example
+!.env.*.example
 .env
+.env.*
 
 # IDEs and editors
 /.vscode

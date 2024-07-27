@@ -1,12 +1,12 @@
-import { Router } from "express";
+import { Router, Request, Response } from "express";
 
 const router = Router();
 
-router.get("/", (req, res) => {
+router.get("/", (req: Request, res: Response) => {
   res.json({ message: "Hello World" });
 });
 
-router.get("/health", (req, res) => {
+router.get("/health", (req: Request, res: Response) => {
   res.json({ message: "OK" });
 });
 
